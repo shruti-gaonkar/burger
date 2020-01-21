@@ -1,8 +1,8 @@
 // require dotenv to access environment variables
 require("dotenv").config();
-var mysql = require("mysql");
+const mysql = require("mysql");
 
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     // the username and password are environment variables
