@@ -15,9 +15,9 @@ let orm = {
             console.log(result);
         });
     },
-    updateOne: function (tableInput, colToInsert, valOfCol) {
-        const queryString = "UPDATE ?? SET ?? = ?";
-        connection.query(queryString, [tableInput, colToInsert, valOfCol], function (err, result) {
+    updateOne: function (tableInput, whichColToUpdate, valOfCol, whereColToUpdate, whereValofCol) {
+        const queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+        connection.query(queryString, [tableInput, whichColToUpdate, valOfCol, whereColToUpdate, whereValofCol], function (err, result) {
             if (err) throw error;
             console.log(result);
         });

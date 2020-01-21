@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
     port: 3306,
     // the username and password are environment variables
     user: process.env.DB_USER,
-    password: process.env.DB_PASS
+    password: process.env.DB_PASS,
     database: "burgers_db"
 });
 
