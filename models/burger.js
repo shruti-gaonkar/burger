@@ -1,9 +1,23 @@
 const orm = require("../config/orm");
 
-module.exports = function () {
-    orm.selectAll("burgers");
+let burger = {
+    selectAll: function (cb) {
+        orm.selectAll("burgers", function (res) {
+            cb(res);
+        });
+    },
 
-    orm.insertOne("burgers", "burger_name", "Hamburger");
+    insertOne: function (cb) {
+        orm.insertOne("burgers", cols, vals, function (res) {
+            cb(res);
+        });
+    },
 
-    orm.updateOne("burgers", "burger_name", "Veggieee Grill Burger", "id", 1);
+    updateOne: function (cb) {
+        orm.updateOne("burgers", cols, vals, condition, function (res) {
+            cb(res);
+        });
+    }
 };
+
+module.exports = burger;
