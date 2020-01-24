@@ -1,9 +1,10 @@
-<li>
-    {{ burger_name }}
-
+<li class='list-group-item burger-item' data-name="{{ burger_name }}">
+    <span>{{ burger_name }}</span>
+    <input type="text" class="edit" style="display: none;" data-id="{{ id }}">
+    <button class="delete btn btn-danger" data-id="{{ id }}">x</button>
     {{#if devoured}}
-    <button class="change-devour" data-id="{{id}}" data-newdevoured="{{devoured}}">
-        {{#if devoured}}DEVOUR IT!{{/if}}
+    <button class="change-devour" data-id="{{ id }}" data-newdevoured="{{ devoured }}">
+        DEVOUR IT!
     </button>
     {{/if}}
 </li>
