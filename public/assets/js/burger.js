@@ -4,6 +4,7 @@ $(document).ready(function () {
     $(document).on("keyup", ".burger-item", finishEdit);
     $(document).on("blur", ".burger-item", hideEdit);
     $(document).on("click", "button.delete", deleteRecord);
+    $(document).on("click", ".change-devour", updateDevour);
 
     $(".create-form").on("submit", function (event) {
         event.preventDefault();
@@ -61,7 +62,11 @@ $(document).ready(function () {
             url: "/api/burgers",
             data: info
         }).then(function (result) {
-            obj.children("span").text(info.burger_name);
+            if (obj) {
+                obj.children("span").text(info.burger_name);
+            } else {
+                location.reload();
+            }
         });
     }
 
@@ -74,9 +79,15 @@ $(document).ready(function () {
             url: "/api/burgers",
             data: { id: id }
         }).then(function () {
-            //console.log($(this).data("name"));
-            //$(this).parent().remove();
             location.reload();
         });
+    }
+
+    function updateDevour() {
+        var updatedInfo = {
+            id: $(this).data("id")
+        }
+        updatedInfo.devoured = 1;
+        updateRecord('', updatedInfo);
     }
 });
