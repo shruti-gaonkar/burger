@@ -26,9 +26,9 @@ $(document).ready(function () {
     function editRecord() {
         const name = $(this).data("name");
         $(this).children().hide();
-        $(this).children("input.edit").val(name);
-        $(this).children("input.edit").show();
-        $(this).children("input.edit").focus();
+        $(this).children().children().children("input.edit").val(name);
+        $(this).children().children().children("input.edit").show();
+        $(this).children().children().children("input.edit").focus();
     }
 
     // This function starts updating a todo in the database if a user hits the "Enter Key"

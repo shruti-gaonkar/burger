@@ -3,11 +3,9 @@ body {
     height: 100%;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 16px;
-    color: #777777;
+    color: #E16227;
     background-image: url("../img/food.png");
 }
-
-.navbar { padding: 0 }
 
 h1{
     font-family: Georgia, Times, "Times New Roman", serif;
@@ -16,29 +14,21 @@ h1{
     font-weight: bold; 
 }
 
+h5{
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1rem;
+    color: #E16227;
+    font-weight: bold; 
+}
 /* End - Bootstrap css overwritten*/
 
-.nav-header{
-    font-family: Georgia, Times, "Times New Roman", serif;
-    font-size: 1.7rem;
-    font-weight: bold;
-    background-color: #4aaaa5;
-    color:#eee;
-    width: 150px;
-    line-height: 1.7em;
-}
-
-#main-content {
-    flex: 1 0 auto;
-}
 
 #sticky-footer {
     flex-shrink: none;
 }
 
 .footer {
-    background-color: #666666;
-    color: #ccccb3;
-    border-top: 6px solid #4aaaa5;
+    background-color: #E16227;
+    color: #fff;
     font-size: 0.8rem;
 }
