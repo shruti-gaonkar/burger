@@ -24,35 +24,37 @@ $(document).ready(function () {
     });
 
     function editRecord() {
-        const name = $(this).data("name");
-        $(this).children().hide();
-        $(this).children().children().children("input.edit").val(name);
-        $(this).children().children().children("input.edit").show();
-        $(this).children().children().children("input.edit").focus();
+        if ($(this).hasClass("list-group-item-warning")) {
+            const name = $(this).data("name");
+            $(this).children().children().children("span").hide();
+            $(this).children().children().children("input.edit").val(name);
+            $(this).children().children().children("input.edit").show();
+            $(this).children().children().children("input.edit").focus();
+        }
     }
 
     // This function starts updating a todo in the database if a user hits the "Enter Key"
     // While in edit mode
     function finishEdit(event) {
         var updatedInfo = {
-            id: $(this).children("input").data("id")
+            id: $(this).children().children().children("input").data("id")
         }
         if (event.which === 13) {
-            updatedInfo.burger_name = $(this).children("input").val().trim();
+            updatedInfo.burger_name = $(this).children().children().children("input").val().trim();
             $(this).blur();
             updateRecord($(this), updatedInfo);
         }
     }
 
-    // This function is called whenever a todo item is in edit mode and loses focus
+    // This function is called whenever a burger item is in edit mode and loses focus
     // This cancels any edits being made
     function hideEdit() {
-        var currentRec = $(this).children("input").data("id");
+        var currentRec = $(this).children().children().children("input").data("id");
         if (currentRec) {
-            $(this).children().hide();
-            $(this).children("input.edit").val($(this).data("name"));
-            $(this).children("span").show();
-            $(this).children("button").show();
+            $(this).children().children().children("input.edit").hide();
+            $(this).children().children().children("input.edit").val($(this).data("name"));
+            $(this).children().children().children("span").show();
+            $(this).children().children().children("button").show();
         }
     }
 
@@ -63,7 +65,9 @@ $(document).ready(function () {
             data: info
         }).then(function (result) {
             if (obj) {
-                obj.children("span").text(info.burger_name);
+                obj.data("name", info.burger_name);
+                obj.children().children().children("span").text(info.burger_name);
+                obj.children().children().children("input.edit").val(info.burger_name);
             } else {
                 location.reload();
             }
