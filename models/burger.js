@@ -17,6 +17,12 @@ let burger = {
         orm.updateOne("burgers", cols, vals, condition, function (res) {
             cb(res);
         });
+    },
+
+    deleteOne: function (condition, cb) {
+        orm.deleteOne("burgers", condition, function (res) {
+            cb(res);
+        });
     }
 };
 

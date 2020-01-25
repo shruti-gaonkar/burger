@@ -3,6 +3,7 @@ $(document).ready(function () {
     $(document).on("click", ".burger-item", editRecord);
     $(document).on("keyup", ".burger-item", finishEdit);
     $(document).on("blur", ".burger-item", hideEdit);
+    $(document).on("click", "button.delete", deleteRecord);
 
     $(".create-form").on("submit", function (event) {
         event.preventDefault();
@@ -60,6 +61,23 @@ $(document).ready(function () {
             data: info
         }).then(function (result) {
             obj.children("span").text(info.burger_name);
+        });
+    }
+
+    // This function deletes a todo when the user clicks the delete button
+    function deleteRecord(event) {
+        event.stopPropagation();
+        var id = $(this).data("id");
+        $.ajax({
+            method: "DELETE",
+            url: "/api/burgers",
+            data: { id: id }
+        }).then(function () {
+            console.log($(this).data("name"));
+            /*$(this).parent().remove();
+            $.get("/").then(function (result) {
+
+            });*/
         });
     }
 });

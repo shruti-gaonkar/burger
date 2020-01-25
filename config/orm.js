@@ -21,6 +21,13 @@ let orm = {
             if (err) throw err;
             cb(result);
         });
+    },
+    deleteOne: function (tableInput, condition, cb) {
+        const queryString = "DELETE FROM ?? WHERE " + condition;
+        connection.query(queryString, [tableInput], function (err, result) {
+            if (err) throw err;
+            cb(result);
+        });
     }
 };
 
