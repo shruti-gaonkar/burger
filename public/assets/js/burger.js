@@ -15,6 +15,7 @@ $(document).ready(function () {
         $.post("/api/burgers", newBurger)
             .then(function () {
                 console.log("Created burger");
+                location.reload();
             });
 
         $("#burger_name").val("");
@@ -73,11 +74,9 @@ $(document).ready(function () {
             url: "/api/burgers",
             data: { id: id }
         }).then(function () {
-            console.log($(this).data("name"));
-            /*$(this).parent().remove();
-            $.get("/").then(function (result) {
-
-            });*/
+            //console.log($(this).data("name"));
+            //$(this).parent().remove();
+            location.reload();
         });
     }
 });
