@@ -2,7 +2,7 @@
 
 ### File
 
-* [`bamazon`](bamazon/blob/master/survey.js)
+* [`Eat-Da-Burger`](burger/blob/master/server.js)
 
 ### Technologies
 MySQL, Node, Express, Handlebars and a user defined ORM. It follows a MVC design pattern; Node and MySQL to query and route data in the app, and Handlebars to generate the HTML.
