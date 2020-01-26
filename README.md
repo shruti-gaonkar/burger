@@ -2,7 +2,7 @@
 
 ### File
 
-* [`Eat-Da-Burger`](burger/blob/master/server.js)
+* [`Eat-Da-Burger`](server.js)
 
 ### Technologies
 MySQL, Node, Express, Handlebars and a user defined ORM. It follows a MVC design pattern; Node and MySQL to query and route data in the app, and Handlebars to generate the HTML.
